@@ -20,6 +20,6 @@
   end
 
   def titleize(string)
-    string.capitalize
+    string.split.map { |word| word.capitalize }.join
   end
 
