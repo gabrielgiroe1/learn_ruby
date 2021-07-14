@@ -19,13 +19,7 @@
     return  gstring.split.first()
   end
 
-  def titleize(gstring)
-    word_no_capitalizes=["and", "or", "over", "to", "the", "a", "but","at"]
-    variablee=""
-    result_word=gstring.split(" ").map{|word|
-       word_no_capitalizes.include?word ? variablee+=+ " " + word[0].upcase() + word[1..-1] : variablee+=+" " + word
-    }.join(" ")
-    puts variablee
-     variablee
+  def titleize(string)
+    string.capitalize
   end
 
