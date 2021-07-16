@@ -1,24 +1,26 @@
+def foo(value, number)
+  "#{value[number..-1]}#{value[0..number-1]}"
+end
 def pig_latin_for_one_word(string1)
   vowel = ["a", "e", "i", "o", "u"]
   i = 0
   loop do
-    if i > string1.length() #word have just consonant and this is a problem
-      break
+    if i >= string1.length
+      return foo(string1,1)
     end
 
     if (string1[0] === "q") & (string1[1] === "u")
-      string.rotate(2)
-      break
+      string1= foo(string1,2)
     end
 
     if vowel.include? string1[0]
-      i += 1
-      break
+      return string1
     else
-      string1.rotate(1)
+      string1=foo(string1,1)
+      i+=1
     end
+
   end
-  string1
 end
 
 def translate (string)
