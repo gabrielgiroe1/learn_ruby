@@ -1,31 +1,19 @@
-def add(a,b)
-  a+b
+def add(a, b)
+  a + b
 end
 
-def subtract(a,b)
-  return (a-b)
+def subtract(a, b)
+  a - b
 end
 
 def sum (arr)
-  sum=0.0
-  if arr.length<=0 then
-    return  0
+  sum = 0.0
+  arr.each do |item|
+    sum += item
   end
-
-  arr.each do |item |
-    sum+=item
-  end
-
-  return sum
+  sum
 end
 
 def multiply(base, exp)
-  var1=1
-  var=base
-
-  while var<=exp
-    var+=1
-    var=var*base
-  end
-  return var
+  base**exp
 end
