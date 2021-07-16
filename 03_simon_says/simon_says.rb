@@ -1,34 +1,26 @@
-def echo (gstrin)
-  gstrin
+def echo (saying)
+  saying
 end
 
-def shout gstring
-  gstring.strip()
-  gstring=gstring.upcase()
+def shout (phrase)
+  phrase.strip
+  phrase.upcase
 end
 
-def   repeat (gstring, noumbers=2)
-  return ([gstring]* noumbers).join(" ")
+def repeat (phrase, number = 2)
+  ([phrase] * number).join(" ")
 end
 
-def start_of_word (gstring,noumber=0)
-  return gstring[0,noumber]
+def start_of_word (phrase, number = 0)
+  phrase[0, number]
 end
 
-def first_word(gstring)
-  return  gstring.split.first()
+def first_word(phrase)
+  phrase.split.first
 end
 
-def titleize(string)
-  lower_words = ["or", "and", "over", "the"]
-  if string.strip.include? " "
-  resolve_string=string.split.map {  |word| lower_words.include?(word)? word  : word.capitalize  }.join(" ")
-   else
-    resolve_string=string.split.map { |word| lower_words.include?(word)? word  : word.capitalize }.join(" ")
-  end
-  if resolve_string[0]==="t"
-  resolve_string[0]="T"
-  end
-  resolve_string
+def titleize(phrase)
+  lower_words = %w[or and over the]
+  phrase.capitalize.split.map { |word| lower_words.include?(word) ? word : word.capitalize }.join(" ")
 end
 
