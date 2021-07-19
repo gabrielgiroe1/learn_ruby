@@ -1,22 +1,22 @@
-def foo(value, number)
+def rotate_n_letter(value, number)
   "#{value[number..-1]}#{value[0..number-1]}"
 end
-def pig_latin_for_one_word(string1)
+def pig_latin_for_one_word(word)
   vowel = ["a", "e", "i", "o", "u"]
   i = 0
   loop do
-    if i >= string1.length
-      return foo(string1,1)
+    if i >= word.length
+      return rotate_n_letter(word,1)
     end
 
-    if (string1[0] === "q") & (string1[1] === "u")
-      string1= foo(string1,2)
+    if (word[0] === "q") & (word[1] === "u")
+      word= rotate_n_letter(word,2)
     end
 
-    if vowel.include? string1[0]
-      return string1
+    if vowel.include? word[0]
+      return word
     else
-      string1=foo(string1,1)
+      word=rotate_n_letter(word,1)
       i+=1
     end
 
