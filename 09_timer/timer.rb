@@ -7,7 +7,7 @@ class Timer
   end
 
   def padded(x)
-    x>9? x.to_s : "0"+x.to_s
+    x > 9 ? x.to_s : "0" + x.to_s
   end
 
   def time_string
@@ -20,6 +20,6 @@ class Timer
       @seconds -= m * 60
     end
     s = @seconds
-    "#{ padded(h)}:#{padded(m)}:#{padded(s)}"
+    "#{ padded(h)}:#{padded(m)}:#{padded(s) }"
   end
 end
