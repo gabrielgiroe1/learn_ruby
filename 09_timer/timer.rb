@@ -7,20 +7,7 @@ class Timer
   end
 
   def padded(x)
-    temp = x
-    c = 1
-    while temp > 0
-      temp = temp.div(10)
-      c += 1
-    end
-    if c > 0
-      c -= 1
-    end
-    if (c % 2 == 0) && (c > 0)
-      x.to_s
-    else
-      x = "0" + x.to_s
-    end
+    x>9? x.to_s : "0"+x.to_s
   end
 
   def time_string
@@ -33,6 +20,6 @@ class Timer
       @seconds -= m * 60
     end
     s = @seconds
-    padded(h) + ":" + padded(m) + ":" + padded(s)
+    "#{ padded(h)}:#{padded(m)}:#{padded(s)}"
   end
 end
