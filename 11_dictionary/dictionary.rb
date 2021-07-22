@@ -10,35 +10,22 @@ class Dictionary
   end
 
   def add(hash)
-    temp = {}
-    if hash.is_a? String
-      @entries[hash] = nil
-    else
-      hash.each do |key, value|
-        @entries[key] = value
-      end
-    end
-
-    @entries = @entries.sort_by { |key, value| key }.to_h
-
+    hash.is_a?(String) ? @entries[hash] = nil : @entries.merge!(hash)
   end
 
   def keywords
     array = []
-    i = 0
-    @entries.each do |key, value|
-      array[i] = key
-      i += 1
+    @entries.each do |key,value|
+      array.push(key)
     end
-    array
+    array.sort
   end
 
   def include?(key = nil)
-    @entries.has_key?(key) ? true : false
+    @entries.has_key?(key)
   end
 
   def find(word)
-    @entries.has_key?(word) ? @entries : {}
     hash = {}
     if word.is_a? String
       @entries.each do |key, value|
@@ -48,12 +35,9 @@ class Dictionary
       end
     end
     hash
-
   end
 
   def printable
-     @entries.map { |key, values|
-        "[#{key}] \"#{values}\""
-    }.join("\n")
+    @entries.reverse_each.map { |key, values| "[#{key}] \"#{values}\"" }.join("\n")
   end
 end
