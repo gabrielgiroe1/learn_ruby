@@ -30,19 +30,19 @@ describe Dictionary do
   end
 
   it 'can check whether a given keyword exists' do
-    @d.include?('fish').should be_false
+    @d.include?('fish').should be_falsey
   end
 
   it "doesn't cheat when checking whether a given keyword exists" do
-    @d.include?('fish').should be_false # if the method is empty, this test passes with nil returned
+    @d.include?('fish').should be_falsey # if the method is empty, this test passes with nil returned
     @d.add('fish')
-    @d.include?('fish').should be_true # confirms that it actually checks
-    @d.include?('bird').should be_false # confirms not always returning true after add
+    @d.include?('fish').should be_truthy # confirms that it actually checks
+    @d.include?('bird').should be_falsey # confirms not always returning true after add
   end
 
   it "doesn't include a prefix that wasn't added as a word in and of itself" do
     @d.add('fish')
-    @d.include?('fi').should be_false
+    @d.include?('fi').should be_falsey
   end
 
   it "doesn't find a word in empty dictionary" do
@@ -71,7 +71,7 @@ describe Dictionary do
     @d.add('zebra' => 'African land animal with stripes')
     @d.add('fish' => 'aquatic animal')
     @d.add('apple' => 'fruit')
-    @d.keywords.should == %w(apple fish zebra)
+      @d.keywords.should == %w(apple fish zebra)
   end
 
   it 'can produce printable output like so: [keyword] "definition"' do
